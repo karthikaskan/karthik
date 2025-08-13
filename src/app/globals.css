@@ -160,6 +160,7 @@
   bottom: 20px;
   text-align: center;
   box-shadow: 0 1px 6px 0 rgb(0 0 0 / 6%), 0 2px 32px 0 rgb(0 0 0 / 16%);
+  z-index: 100;
 }
 /* Footer Styles */
 .footer {
@@ -2233,11 +2234,11 @@ display: flex;
 }
 
 
-    .hero {
+     .hero {
         width: 100%;
         min-height: 341px;
         background-position: left;
-        margin-top: 250px;
+        margin-top: 80px;
     }
     .slider-logo {
         width: 85%;
@@ -2629,7 +2630,7 @@ row-gap: 0;
     justify-content: center;
     align-items: flex-end;
     column-gap: 2px;
-    width: 100%;
+    width: 77%;
     align-content: center;
     margin: 0 auto;
     font-size: 12px;
