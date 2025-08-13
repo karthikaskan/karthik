@@ -321,14 +321,34 @@ export default function Testimonial({ data }) {
     <div className="testimony-section">
       <div className="background-three"></div>
 
-      <Swiper
-        modules={[Navigation, Pagination]}
-        navigation
-      
-        spaceBetween={20}
-        slidesPerView={1}
-        loop={true}
-      >
+<Swiper
+  modules={[Navigation, Pagination]}
+  navigation
+  spaceBetween={20}
+  slidesPerView={1}
+  loop={false} // important: with loop=true, both buttons are always clickable
+  onSlideChange={(swiper) => {
+    const prevBtn = document.querySelector(".swiper-button-prev");
+    const nextBtn = document.querySelector(".swiper-button-next");
+
+    if (!prevBtn || !nextBtn) return;
+
+    // Always reset both
+    prevBtn.classList.remove("nav-active");
+    nextBtn.classList.remove("nav-active");
+
+    // If we're not on the first slide, show prev button fully
+    if (!swiper.isBeginning) {
+      prevBtn.classList.add("nav-active");
+    }
+
+    // If we're not on the last slide, show next button fully
+    if (!swiper.isEnd) {
+      nextBtn.classList.add("nav-active");
+    }
+  }}
+>
+
         {slides.map((slide, idx) => (
           <SwiperSlide key={idx}>
             <div className="flex-slide">
